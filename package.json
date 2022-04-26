@@ -1,5 +1,5 @@
 {
-  "name": "ticket-sales-v2",
+  "name": "bidpro",
   "description": "please i am begging you to work",
   "scripts": {
     "start": "webpack-dev-server --config webpack.config.dev.js --port 3000"
