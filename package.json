@@ -2,16 +2,8 @@
   "name": "bidpro",
   "description": "please i am begging you to work",
   "scripts": {
-    "start": "webpack-dev-server --config webpack.config.dev.js --port 3000"
-  },
-  "jest": {
-    "setupFiles": [
-      "./tools/testSetup.js"
-    ],
-    "moduleNameMapper": {
-      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/tools/fileMock.js",
-      "\\.(css|less)$": "<rootDir>/tools/styleMock.js"
-    }
+    "start": "webpack-dev-server --config webpack.config.dev.js --port 3000",
+    "storybook": "start-storybook -p 6333 -s public"
   },
   "dependencies": {
     "bootstrap": "4.3.1",
@@ -28,6 +20,11 @@
   },
   "devDependencies": {
     "@babel/core": "7.3.4",
+    "@storybook/addon-essentials": "^6.4.22",
+    "@storybook/addon-links": "^6.4.22",
+    "@storybook/builder-webpack5": "^6.4.22",
+    "@storybook/manager-webpack5": "^6.4.22",
+    "@storybook/react": "^6.4.22",
     "babel-eslint": "10.0.1",
     "babel-loader": "8.0.5",
     "babel-preset-react-app": "7.0.2",
