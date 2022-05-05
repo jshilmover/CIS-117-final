@@ -4,6 +4,9 @@ import { VersionView } from "./VersionView";
 export default {
   title: "Components/VersionView",
   component: VersionView,
+  argTypes: {
+    version: "1.0.0",
+  },
 };
 
 const Template = (args) => <VersionView {...args} />;
