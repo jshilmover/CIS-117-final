@@ -2,7 +2,7 @@ import React from "react";
 import { AirlineView } from "./AirlineView";
 
 export default {
-  title: "Interactive Components/AirlineView",
+  title: "InteractiveComponents/AirlineView",
   component: AirlineView,
 };
 

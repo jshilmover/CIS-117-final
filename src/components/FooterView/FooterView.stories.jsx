@@ -2,7 +2,7 @@ import React from "react";
 import { FooterView } from "./FooterView";
 
 export default {
-  title: "Components/FooterView",
+  title: "ViewComponents/FooterView",
   component: FooterView,
 };
 

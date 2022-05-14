@@ -4,7 +4,7 @@ import { AdministrationView } from "../AdministrationView/AdministrationView";
 import { VersionView } from "../VersionView/VersionView";
 
 export default {
-  title: "Components/JumbotronView",
+  title: "ViewComponents/JumbotronView",
   component: JumbotronView,
 };
 

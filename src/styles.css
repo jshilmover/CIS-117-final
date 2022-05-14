@@ -8,3 +8,9 @@
 .copyright {
   font-size: x-small;
 }
+
+.bidpro-color,
+.bidpro-color:hover {
+  background-color: #83a4c4;
+  color: white;
+}

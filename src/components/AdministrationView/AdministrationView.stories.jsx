@@ -2,7 +2,7 @@ import React from "react";
 import { AdministrationView } from "./AdministrationView";
 
 export default {
-  title: "Components/AdministrationView",
+  title: "ViewComponents/AdministrationView",
   component: AdministrationView,
 };
 
