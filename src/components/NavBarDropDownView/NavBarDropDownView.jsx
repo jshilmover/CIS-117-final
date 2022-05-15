@@ -7,16 +7,16 @@ import PropTypes from "prop-types";
 
 export function NavBarDropDownView({ airlineName, bidTypesPath, pilotsPath }) {
   return (
-    <div className="dropdown">
-      <button
-        className="btn dropdown-toggle bidpro-color"
+    <li className="nav-item dropdown">
+      <a
+        className="nav-link dropdown-toggle bidpro-color"
         type="button"
         id={airlineName}
         data-bs-toggle="dropdown"
         aria-expanded="false"
       >
         {airlineName}
-      </button>
+      </a>
       <ul className="dropdown-menu" aria-labelledby={airlineName}>
         <a className="dropdown-item" href={bidTypesPath}>
           Bid Types
@@ -26,7 +26,7 @@ export function NavBarDropDownView({ airlineName, bidTypesPath, pilotsPath }) {
           Pilots
         </a>
       </ul>
-    </div>
+    </li>
   );
 }
 
