@@ -15,13 +15,8 @@ module.exports = {
     filename: "bundle.js",
   },
   devServer: {
-    stats: "minimal",
-    overlay: true,
-    historyApiFallback: true,
-    disableHostCheck: true,
     headers: { "Access-Control-Allow-Origin": "*" },
     https: false,
-    hot: true,
   },
   plugins: [
     new webpack.DefinePlugin({
@@ -45,5 +40,8 @@ module.exports = {
         use: ["style-loader", "css-loader"],
       },
     ],
+  },
+  resolve: {
+    extensions: [".js", ".jsx"],
   },
 };

@@ -5,7 +5,7 @@ import { NavBarDropDownView } from "../NavBarDropDownView/NavBarDropDownView";
  * View component that displays the navigation bar
  */
 
-export function NavBarView({}) {
+export function NavBarView() {
   return (
     <div className="navbar-collapse navbar-expand-lg justify-content-end">
       <ul className="p-2 navbar-nav">

@@ -1,4 +1,5 @@
 import React from "react";
+import { PropTypes } from "prop-types";
 
 /**
  * View component that displays the header for the site.
@@ -12,3 +13,8 @@ export function HeaderView({ logo, navbar }) {
     </nav>
   );
 }
+
+HeaderView.propTypes = {
+  logo: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+  navbar: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+};

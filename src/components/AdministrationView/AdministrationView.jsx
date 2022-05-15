@@ -7,7 +7,7 @@ import PropTypes from "prop-types";
 
 export function AdministrationView({ name }) {
   return (
-    <div className="col-xs-6 col-lg-8">
+    <div className="col-xs-6 col-lg-8 jumbotron pt-0">
       <h1 className="display-3">ADMINISTRATION</h1>
       <p className="lead">
         Hello {name}! A website dedicated to the administration of Airline data.
