@@ -7,8 +7,8 @@ import { NavBarDropDownView } from "../NavBarDropDownView/NavBarDropDownView";
 
 export function NavBarView({}) {
   return (
-    <div className="collapse navbar-collapse">
-      <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+    <div className="navbar-collapse navbar-expand-lg justify-content-end">
+      <ul className="p-2 navbar-nav">
         <NavBarDropDownView
           airlineName="American Airlines"
           bidTypesPath="/american-airlines/bidtypes"
@@ -33,4 +33,3 @@ export function NavBarView({}) {
     </div>
   );
 }
-
