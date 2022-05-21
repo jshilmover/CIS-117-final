@@ -46,7 +46,7 @@ export function BidTypeView({
         <p>{bidPeriods}</p>
       </div>
       <div className="col-3 align-self-center">
-        <p>{lastImport}</p>
+        <p className="text-center">{lastImport}</p>
       </div>
       <div className="row col-2 align-self-center">
         <button className="btn retry-import-button my-1">
