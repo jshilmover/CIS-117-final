@@ -32,7 +32,35 @@ export function BidTypeView({
     );
   }
   return (
-    <div className="row">
+    <tr>
+      <th className="col-1 align-middle" scope="row">
+        {id}
+      </th>
+      <td className="col-2 align-middle">{bidType}</td>
+      <td className="col-2 align-middle">Current</td>
+      <td className="col-3 align-middle">{bidPeriods}</td>
+      <td className="col-2 align-middle">{lastImport}</td>
+      <td className="col-2 align-middle">
+        <div>
+          <button className="col-12 btn retry-import-button my-1">
+            <span className="bi bi-cloud-download" /> Retry Import
+          </button>
+          <button className=" col-12 btn secondary-bidtype-button my-1">
+            Bid Periods
+            <span className="bi bi-caret-right-fill" />
+          </button>
+          <button className="col-12 btn secondary-bidtype-button my-1">
+            Import History
+            <span className="bi bi-caret-right-fill" />
+          </button>
+          <button className="col-12 btn btn-danger my-1">
+            <span className="bi bi-x" />
+            Delete
+          </button>
+        </div>
+      </td>
+    </tr>
+    /*     <div className="row">
       <div className="col-1 align-self-center">
         <p>{id}</p>
       </div>
@@ -65,7 +93,7 @@ export function BidTypeView({
           Delete
         </button>
       </div>
-    </div>
+    </div> */
   );
 }
 
