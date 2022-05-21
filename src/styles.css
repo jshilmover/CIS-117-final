@@ -14,3 +14,17 @@
   background-color: #83a4c4;
   color: white;
 }
+
+.retry-import-button {
+  background-color: #77a6d0;
+  color: white;
+}
+
+.secondary-bidtype-button {
+  background-color: #93b3d0;
+  color: white;
+}
+
+.importing {
+  background-color: lightyellow;
+}
