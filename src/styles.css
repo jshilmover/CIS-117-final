@@ -28,3 +28,11 @@
 .importing {
   background-color: lightyellow;
 }
+
+table, th, td, thead {
+  border-bottom-color: #DFDFDF !important;
+}
+
+thead {
+  border-top-color: #F4F4F4 !important;
+}
