@@ -1,7 +1,5 @@
 import React from "react";
 import { HeaderView } from "../../components/HeaderView/HeaderView";
-import { LogoView } from "../../components/LogoView/LogoView";
-import { NavBarView } from "../../components/NavBarView/NavBarView";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap";
 import "../../styles.css";
@@ -12,8 +10,35 @@ import { AirlineView } from "../../components/AirlineView/AirlineView";
 import { FooterView } from "../../components/FooterView/FooterView";
 
 const HomePage = () => (
-  <body>
-    <HeaderView logo={<LogoView />} navbar={<NavBarView />} />
+  <div>
+    <HeaderView
+      menus={[
+        {
+          airlineName: "American Airlines",
+          bidTypesPath: "/american-airlines/bidtypes",
+          id: "1",
+          pilotsPath: "american-airlines/pilots",
+        },
+        {
+          airlineName: "Alaska Airlines",
+          bidTypesPath: "/alaska-airlines/bidtypes",
+          id: "2",
+          pilotsPath: "alaska-airlines/pilots",
+        },
+        {
+          airlineName: "Frontier Airlines",
+          bidTypesPath: "/frontier-airlines/bidtypes",
+          id: "3",
+          pilotsPath: "frontier-airlines/pilots",
+        },
+        {
+          airlineName: "UPS",
+          bidTypesPath: "/ups/bidtypes",
+          id: "4",
+          pilotsPath: "ups/pilots",
+        },
+      ]}
+    />
     <div className="jumbotron d-flex align-items-stretch mx-5 pt-2 pb-0">
       <AdministrationView name="Jory Shilmover" />
       <VersionView current="1.0.0" />
@@ -43,7 +68,7 @@ const HomePage = () => (
     <footer>
       <FooterView />
     </footer>
-  </body>
+  </div>
 );
 
 export default HomePage;

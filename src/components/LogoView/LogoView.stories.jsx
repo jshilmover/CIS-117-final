@@ -6,5 +6,5 @@ export default {
   component: LogoView,
 };
 
-const Template = () => <LogoView />;
+const Template = (args) => <LogoView {...args} />;
 export const Example = Template.bind({});

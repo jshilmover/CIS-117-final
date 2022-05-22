@@ -1,20 +1,30 @@
 import React from "react";
 import { PropTypes } from "prop-types";
+import { NavBarView } from "../NavBarView/NavBarView";
+import { LogoView } from "../LogoView/LogoView";
 
 /**
  * View component that displays the header for the site.
  */
 
-export function HeaderView({ logo, navbar }) {
+export function HeaderView({ menus }) {
   return (
     <nav className="navbar navbar-expand-lg bidpro-color d-flex py-0">
-      {logo}
-      <div className="container-fluid me-2">{navbar}</div>
+      <LogoView />
+      <div className="container-fluid me-2">
+        <NavBarView menus={menus} />
+      </div>
     </nav>
   );
 }
 
 HeaderView.propTypes = {
-  logo: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
-  navbar: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+  menus: PropTypes.arrayOf(
+    PropTypes.shape({
+      airlineName: PropTypes.string,
+      bidTypesPath: PropTypes.string,
+      id: PropTypes.string,
+      pilotsPath: PropTypes.string,
+    })
+  ),
 };

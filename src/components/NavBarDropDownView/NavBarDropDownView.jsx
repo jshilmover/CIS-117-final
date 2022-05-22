@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 /**
  * Interactive component that displays a navigational drop down menu
@@ -18,13 +19,13 @@ export function NavBarDropDownView({ airlineName, bidTypesPath, pilotsPath }) {
         {airlineName}
       </a>
       <ul className="dropdown-menu" aria-labelledby={airlineName}>
-        <a className="dropdown-item" href={bidTypesPath}>
+        <Link className="dropdown-item" to={bidTypesPath}>
           Bid Types
-        </a>
+        </Link>
         <hr />
-        <a className="dropdown-item" href={pilotsPath}>
+        <Link className="dropdown-item" href={pilotsPath}>
           Pilots
-        </a>
+        </Link>
       </ul>
     </li>
   );
