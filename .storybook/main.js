@@ -5,6 +5,7 @@ module.exports = {
     "@storybook/addon-essentials/",
     "@storybook/addon-controls/register",
   ],
+  staticDirs: ["../public"],
   core: {
     builder: "webpack5",
   },

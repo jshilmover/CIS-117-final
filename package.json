@@ -3,11 +3,12 @@
   "description": "please i am begging you to work",
   "scripts": {
     "start": "webpack-dev-server --config webpack.config.dev.js --port 3000",
-    "storybook": "start-storybook -p 6333 -s public"
+    "storybook": "start-storybook -p 6333"
   },
   "dependencies": {
     "@datorama/akita": "^7.1.1",
     "@fortawesome/fontawesome-free": "^6.1.1",
+    "@types/react": "^18.0.9",
     "bluebird": "^3.7.2",
     "bootstrap": "5.0.0",
     "immer": "2.1.3",
