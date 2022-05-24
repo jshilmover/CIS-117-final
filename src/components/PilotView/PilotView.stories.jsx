@@ -10,6 +10,7 @@ const Template = (args) => <PilotView {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
+  key: "1",
   photoPath: "john-smith.jpeg",
   name: "John Smith",
   planeInfo: "CPT 737 GEG",

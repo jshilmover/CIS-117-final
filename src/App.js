@@ -1,5 +1,10 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "@fortawesome/fontawesome-free/css/all.css";
+import "bootstrap";
+import "../src/styles.css";
+import "popper.js";
 
 import HomePage from "./pages/home/HomePage";
 import AABidTypesPage from "./pages/american-airlines/AABidTypesPage";

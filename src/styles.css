@@ -37,6 +37,10 @@
   border-radius: 50%;
 }
 
+.pilot-text {
+  color: #646668;
+}
+
 table, th, td, thead {
   border-bottom-color: #DFDFDF !important;
 }

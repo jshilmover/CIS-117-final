@@ -3,28 +3,46 @@ import PropTypes from "prop-types";
 
 export function PilotView({ photoPath, name, planeInfo, location, address }) {
   return (
-    <div className="container">
+    <div className="container pilot-text">
       <div className="row">
-        <img
-          src={photoPath}
-          className="img-fluid float start rounded-circle col-1"
-        />
-        <span className="col">{name}</span>
-        <p className="align-self-center">{planeInfo.slice(0, 7)}</p>
-        <p>{planeInfo.slice(-3)}</p>
+        <div className="col-1">
+          <img
+            src={photoPath}
+            className="img-fluid float start rounded-circle"
+          />
+        </div>
+        <div className="row col-11">
+          <h3 className="col-12 fw-bold mb-0">{name}</h3>
+          <div className="col-12 align-items-center py-3">
+            <i className="fa-solid fa-location-dot"></i> {location}
+          </div>
+        </div>
       </div>
-      <p>{location}</p>
-      <address>
-        {address.name}
-        {address.streetAddress}
-        {address.cityStateZip}
-        {address.phone}
-      </address>
+      <div className="row">
+        <div className="col-1 text-center">
+          <span className="text-nowrap fw-bold">{planeInfo.slice(0, 7)}</span>
+          <br />
+          <span className="fw-bold">{planeInfo.slice(-3)}</span>
+        </div>
+        <div className="col-11">
+          <address>
+            <strong>{address.name}</strong>
+            <br />
+            {address.streetAddress}
+            <br />
+            {address.cityStateZip}
+            <br />
+            <abbr title="Phone">P:</abbr> {address.phone}
+            <br />
+          </address>
+        </div>
+      </div>
     </div>
   );
 }
 
 PilotView.propTypes = {
+  key: PropTypes.string,
   photoPath: PropTypes.string,
   name: PropTypes.string,
   planeInfo: PropTypes.string,

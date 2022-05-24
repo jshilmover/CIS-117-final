@@ -23,7 +23,7 @@ export function NavBarDropDownView({ airlineName, bidTypesPath, pilotsPath }) {
           Bid Types
         </Link>
         <hr />
-        <Link className="dropdown-item" href={pilotsPath}>
+        <Link className="dropdown-item" to={pilotsPath}>
           Pilots
         </Link>
       </ul>
