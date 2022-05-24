@@ -4,10 +4,9 @@ import { PilotView } from "../PilotView/PilotView";
 
 export function PilotsListView(pilots) {
   return (
-    <div className="container">
+    <div className="pilots-list-bg">
       <div className="row">
-        {console.log(pilots)}
-        {pilots.map((pilot) => (
+        {pilots.pilots.map((pilot) => (
           <PilotView
             key={pilot.key}
             photoPath={pilot.photoPath}
@@ -23,5 +22,19 @@ export function PilotsListView(pilots) {
 }
 
 PilotsListView.propTypes = {
-  pilots: PropTypes.array,
+  pilots: PropTypes.arrayOf(
+    PropTypes.shape({
+      key: PropTypes.string.isRequired,
+      photoPath: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      planeInfo: PropTypes.string.isRequired,
+      location: PropTypes.string.isRequired,
+      address: PropTypes.shape({
+        name: PropTypes.string.isRequired,
+        streetAddress: PropTypes.string.isRequired,
+        cityStateZip: PropTypes.string.isRequired,
+        phone: PropTypes.string.isRequired,
+      }),
+    })
+  ),
 };

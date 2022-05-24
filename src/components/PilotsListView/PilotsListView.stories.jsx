@@ -17,8 +17,14 @@ Default.args = {
       name: "John Smith",
       planeInfo: "CPT 737 GEG",
       location: "Riviera State 32/106",
+      address: {
+        name: "Twitter, Inc.",
+        streetAddress: "795 Folsom Ave, Suite 600",
+        cityStateZip: "San Francisco, CA 94107",
+        phone: "(123) 456-7890",
+      },
     },
-    /* {
+    {
       key: "2",
       photoPath: "alex-johnathan.jpeg",
       name: "Alex Johnatan",
@@ -43,6 +49,45 @@ Default.args = {
         cityStateZip: "San Francisco, CA 94107",
         phone: "(123) 456-7890",
       },
-    }, */
+    },
+    {
+      key: "4",
+      photoPath: "michael-zimber.jpeg",
+      name: "Michael Zimber",
+      planeInfo: "FO 737 GEG",
+      location: "Riviera State 32/106",
+      address: {
+        name: "Twitter, Inc.",
+        streetAddress: "795 Folsom Ave, Suite 600",
+        cityStateZip: "San Francisco, CA 94107",
+        phone: "(123) 456-7890",
+      },
+    },
+    {
+      key: "5",
+      photoPath: "sandra-smith.jpeg",
+      name: "Sandra Smith",
+      planeInfo: "FO 737 GEG",
+      location: "Riviera State 32/106",
+      address: {
+        name: "Twitter, Inc.",
+        streetAddress: "795 Folsom Ave, Suite 600",
+        cityStateZip: "San Francisco, CA 94107",
+        phone: "(123) 456-7890",
+      },
+    },
+    {
+      key: "6",
+      photoPath: "janet-carton.jpeg",
+      name: "Janet Carton",
+      planeInfo: "FO 737 GEG",
+      location: "Riviera State 32/106",
+      address: {
+        name: "Twitter, Inc.",
+        streetAddress: "795 Folsom Ave, Suite 600",
+        cityStateZip: "San Francisco, CA 94107",
+        phone: "(123) 456-7890",
+      },
+    },
   ],
 };

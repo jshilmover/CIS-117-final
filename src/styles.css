@@ -41,11 +41,21 @@
   color: #646668;
 }
 
-table, th, td, thead {
-  border-bottom-color: #DFDFDF !important;
+.pilots-list-bg {
+  background-color: #f3f3f4;
+}
+
+.white-bg {
+  background-color: white;
+}
+
+table,
+th,
+td,
+thead {
+  border-bottom-color: #dfdfdf !important;
 }
 
 thead {
-  border-top-color: #F4F4F4 !important;
+  border-top-color: #f4f4f4 !important;
 }
-
