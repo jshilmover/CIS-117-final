@@ -1,6 +1,7 @@
 import React from "react";
 import { BidTypeView } from "../BidTypeView/BidTypeView";
 import PropTypes from "prop-types";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "@fortawesome/fontawesome-free/css/all.css";
 import "@fortawesome/fontawesome-free/webfonts/fa-solid-900.ttf";
 import "@fortawesome/fontawesome-free/webfonts/fa-solid-900.woff2";
@@ -23,11 +24,11 @@ export function BidTypeListView({ bids }) {
             </th>
             <th scope="col">Last Imported</th>
             <th className="float-end" scope="col">
-              <i className="fa-solid fa-brush" />
+              <FontAwesomeIcon icon="fa-solid fa-brush" />
               {"  "}
-              <i className="fa-solid fa-plus" />
+              <FontAwesomeIcon icon="fa-solid fa-plus" />
               {"  "}
-              <i className="fa-solid fa-arrows-rotate" />
+              <FontAwesomeIcon icon="fa-solid fa-arrows-rotate" />
             </th>
           </tr>
         </thead>

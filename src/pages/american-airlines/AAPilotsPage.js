@@ -28,7 +28,7 @@ const AAPilotsPage = () => (
           id: "1",
           location: "Riviera State 32/106",
           name: "John Smith",
-          photoPath: "john-smith.jpeg",
+          photoPath: "../../john-smith.jpeg",
           planeInfo: "CPT 737 GEG",
         },
         {
@@ -41,7 +41,7 @@ const AAPilotsPage = () => (
           id: "2",
           location: "Riviera State 32/106",
           name: "Alex Johnatan",
-          photoPath: "alex-johnathan.jpeg",
+          photoPath: "../../alex-johnathan.jpeg",
           planeInfo: "CPT 737 GEG",
         },
         {
@@ -54,7 +54,7 @@ const AAPilotsPage = () => (
           id: "3",
           location: "Riviera State 32/106",
           name: "Monica Smith",
-          photoPath: "monica-smith.jpeg",
+          photoPath: "../../monica-smith.jpeg",
           planeInfo: "CPT 737 GEG",
         },
         {
@@ -67,7 +67,7 @@ const AAPilotsPage = () => (
           id: "4",
           location: "Riviera State 32/106",
           name: "Michael Zimber",
-          photoPath: "michael-zimber.jpeg",
+          photoPath: "../../michael-zimber.jpeg",
           planeInfo: "FO 737 GEG",
         },
         {
@@ -80,7 +80,7 @@ const AAPilotsPage = () => (
           id: "5",
           location: "Riviera State 32/106",
           name: "Sandra Smith",
-          photoPath: "sandra-smith.jpeg",
+          photoPath: "../../sandra-smith.jpeg",
           planeInfo: "FO 737 GEG",
         },
         {
@@ -93,7 +93,7 @@ const AAPilotsPage = () => (
           id: "6",
           location: "Riviera State 32/106",
           name: "Janet Carton",
-          photoPath: "janet-carton.jpeg",
+          photoPath: "../../janet-carton.jpeg",
           planeInfo: "FO 737 GEG",
         },
       ]}

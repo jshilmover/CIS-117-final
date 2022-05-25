@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export function BidTypeView({
   bidTypes: { id, bidType, bidPeriods, lastImport, state },
@@ -11,13 +12,13 @@ export function BidTypeView({
           {id}
         </th>
         <td className="col-2 align-middle">{bidType}</td>
-        <td className="col-2 align-middle">Importing</td>
-        <td className="col-2 text-center align-middle">{lastImport}</td>
+        <td className="col-3 text-center align-middle">Importing</td>
+        <td className="col-2"></td>
+        <td className="col-2 align-middle">{lastImport}</td>
         <td className="col-2 align-middle">
           <div>
             <button className="col-12 btn btn-danger my-2">
-              <i className="fa-solid fa-cloud-arrow-down" />
-              Cancel
+              <FontAwesomeIcon icon="fa-solid fa-xmark" /> Cancel
             </button>
           </div>
         </td>
@@ -36,16 +37,16 @@ export function BidTypeView({
       <td className="col-2 align-middle">
         <div>
           <button className="col-12 btn retry-import-button my-1">
-            <i className="fa-solid fa-cloud-arrow-down" /> Retry Import
+            <FontAwesomeIcon icon="fa-solid fa-cloud-arrow-down" /> Retry Import
           </button>
           <button className=" col-12 btn secondary-bidtype-button my-1">
-            Bid Periods <i className="fa-solid fa-angles-right" />
+            Bid Periods <FontAwesomeIcon icon="fa-solid fa-angles-right" />
           </button>
           <button className="col-12 btn secondary-bidtype-button my-1">
-            Import History <i className="fa-solid fa-angles-right" />
+            Import History <FontAwesomeIcon icon="fa-solid fa-angles-right" />
           </button>
           <button className="col-12 btn btn-danger my-1">
-            <i className="fa-solid fa-xmark" /> Delete
+            <FontAwesomeIcon icon="fa-solid fa-xmark" /> Delete
           </button>
         </div>
       </td>

@@ -5,7 +5,16 @@ import "@fortawesome/fontawesome-free/css/all.css";
 import "bootstrap";
 import "../src/styles.css";
 import "popper.js";
-
+import { library } from "@fortawesome/fontawesome-svg-core";
+import {
+  faCloudArrowDown,
+  faAnglesRight,
+  faXmark,
+  faBrush,
+  faPlus,
+  faArrowsRotate,
+  faLocationDot,
+} from "@fortawesome/free-solid-svg-icons";
 import HomePage from "./pages/home/HomePage";
 import AABidTypesPage from "./pages/american-airlines/AABidTypesPage";
 import AAPilotsPage from "./pages/american-airlines/AAPilotsPage";
@@ -22,4 +31,13 @@ function App() {
   );
 }
 
+library.add(
+  faCloudArrowDown,
+  faAnglesRight,
+  faXmark,
+  faBrush,
+  faPlus,
+  faArrowsRotate,
+  faLocationDot
+);
 export default App;
