@@ -4,11 +4,11 @@ import { PilotView } from "../PilotView/PilotView";
 
 export function PilotsListView(pilots) {
   return (
-    <div className="pilots-list-bg">
+    <div className="pilots-list-bg px-3">
       <div className="row">
         {pilots.pilots.map((pilot) => (
           <PilotView
-            key={pilot.key}
+            key={pilot.id}
             photoPath={pilot.photoPath}
             name={pilot.name}
             planeInfo={pilot.planeInfo}
@@ -24,7 +24,7 @@ export function PilotsListView(pilots) {
 PilotsListView.propTypes = {
   pilots: PropTypes.arrayOf(
     PropTypes.shape({
-      key: PropTypes.string.isRequired,
+      id: PropTypes.string.isRequired,
       photoPath: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
       planeInfo: PropTypes.string.isRequired,

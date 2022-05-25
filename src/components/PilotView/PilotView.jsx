@@ -3,29 +3,29 @@ import PropTypes from "prop-types";
 
 export function PilotView({ photoPath, name, planeInfo, location, address }) {
   return (
-    <div className="col-4 my-3 px-3">
-      <div className="container pilot-text white-bg">
-        <div className="row">
+    <div className="d-flex col-4 p-4">
+      <div className="pilot-text white-bg mx-auto p-3">
+        <div className="row justify-content-center ">
           <div className="col-3 my-3">
             <img
               src={photoPath}
               className="img-fluid float-start rounded-circle"
             />
           </div>
-          <div className="row col-9">
-            <h3 className="col-12 fw-bold mb-0">{name}</h3>
+          <div className="row justify-content-center m-auto px-4 col-9">
+            <h4 className="col-12 fw-bold mb-0">{name}</h4>
             <div className="col-12 align-items-center">
               <i className="fa-solid fa-location-dot"></i> {location}
             </div>
           </div>
         </div>
-        <div className="row">
+        <div className="row justify-content-center">
           <div className="col-3 text-center">
             <span className="text-nowrap fw-bold">{planeInfo.slice(0, 7)}</span>
             <br />
             <span className="fw-bold">{planeInfo.slice(-3)}</span>
           </div>
-          <div className="col-9">
+          <div className="col-9 m-auto px-4">
             <address>
               <strong>{address.name}</strong>
               <br />

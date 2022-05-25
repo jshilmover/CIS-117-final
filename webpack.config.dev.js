@@ -17,6 +17,7 @@ module.exports = {
   devServer: {
     headers: { "Access-Control-Allow-Origin": "*" },
     https: false,
+    historyApiFallback: true,
   },
   plugins: [
     new webpack.DefinePlugin({
@@ -40,17 +41,6 @@ module.exports = {
         use: ["style-loader", "css-loader"],
       },
       {
-        test: /\.(png|jpe?g|gif)$/i,
-        use: [
-          {
-            loader: "file-loader?name=images/[name].[ext]",
-            options: {
-              esModule: false,
-            },
-          },
-        ],
-      },
-      {
         test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
         use: [
           {
@@ -61,6 +51,10 @@ module.exports = {
             },
           },
         ],
+      },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: "asset/resource",
       },
     ],
   },

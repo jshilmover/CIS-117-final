@@ -49,6 +49,21 @@
   background-color: white;
 }
 
+.title-text {
+  color: #a0a1a2;
+}
+
+.active-contacts {
+  color: #6a6c6e;
+}
+
+.link-unstyled,
+.link-unstyled:link,
+.link-unstyled:hover {
+  color: inherit;
+  text-decoration: inherit;
+}
+
 table,
 th,
 td,
