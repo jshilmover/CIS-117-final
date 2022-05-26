@@ -2,11 +2,12 @@ import React from "react";
 import { BidTypeView } from "../BidTypeView/BidTypeView";
 import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import "@fortawesome/fontawesome-free/css/all.css";
-import "@fortawesome/fontawesome-free/webfonts/fa-solid-900.ttf";
-import "@fortawesome/fontawesome-free/webfonts/fa-solid-900.woff2";
-import "@fortawesome/fontawesome-free/webfonts/fa-regular-400.ttf";
-import "@fortawesome/fontawesome-free/webfonts/fa-regular-400.woff2";
+
+/**
+ * 
+ * View component that displays a list of all bids given to it via array
+ * 
+ */
 
 export function BidTypeListView({ bids }) {
   return (

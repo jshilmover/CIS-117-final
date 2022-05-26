@@ -2,6 +2,12 @@ import React from "react";
 import { PilotsListView } from "../../components/PilotsListView/PilotsListView";
 import { Link } from "react-router-dom";
 
+/**
+ * 
+ * Structural component that displays the american airlines pilots page.
+ * 
+ */
+
 const AAPilotsPage = () => (
   <div className="container">
     <div className="mb-4">

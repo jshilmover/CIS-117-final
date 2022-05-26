@@ -2,6 +2,12 @@ import React from "react";
 import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+/**
+ * 
+ * View component that displays one bid type.
+ * 
+ */
+
 export function BidTypeView({
   bidTypes: { id, bidType, bidPeriods, lastImport, state },
 }) {

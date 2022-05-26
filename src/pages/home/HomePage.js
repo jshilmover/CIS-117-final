@@ -9,6 +9,12 @@ import { VersionView } from "../../components/VersionView/VersionView";
 import { AirlineView } from "../../components/AirlineView/AirlineView";
 import { FooterView } from "../../components/FooterView/FooterView";
 
+/**
+ * 
+ * Structural component that displays the home page.
+ * 
+ */
+
 const HomePage = () => (
   <div>
     <HeaderView

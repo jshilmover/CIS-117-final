@@ -2,6 +2,12 @@ import React from "react";
 import PropTypes from "prop-types";
 import { PilotView } from "../PilotView/PilotView";
 
+/**
+ * 
+ * View component that displays the profiles of all the pilots passed to it as an array.
+ * 
+ */
+
 export function PilotsListView(pilots) {
   return (
     <div className="pilots-list-bg px-3">

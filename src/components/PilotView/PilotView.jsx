@@ -2,6 +2,12 @@ import React from "react";
 import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+/**
+ * 
+ * View component that displays a single pilots profile.
+ * 
+ */
+
 export function PilotView({ photoPath, name, planeInfo, location, address }) {
   return (
     <div className="d-flex col-4 p-4">
