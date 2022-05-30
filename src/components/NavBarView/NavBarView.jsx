@@ -1,6 +1,7 @@
 import React from "react";
 import { NavBarDropDownView } from "../NavBarDropDownView/NavBarDropDownView";
 import PropType from "prop-types";
+import NavDropdown from "react-bootstrap/NavDropdown";
 
 /**
  * View component that displays the navigation bar
@@ -8,15 +9,17 @@ import PropType from "prop-types";
 
 export function NavBarView({ menus }) {
   return (
-    <div className="navbar-collapse navbar-expand-lg justify-content-end">
-      <ul className="p-2 navbar-nav">
+    <div>
+      <ul className="p-2 navbar-nav mr-auto">
         {menus.map((menu) => (
-          <NavBarDropDownView
-            key={menu.id}
-            airlineName={menu.airlineName}
-            bidTypesPath={menu.bidTypesPath}
-            pilotsPath={menu.pilotsPath}
-          />
+          <NavDropdown key={menu.key} title={menu.airlineName}>
+            <NavBarDropDownView
+              key={menu.id}
+              airlineName={menu.airlineName}
+              bidTypesPath={menu.bidTypesPath}
+              pilotsPath={menu.pilotsPath}
+            />
+          </NavDropdown>
         ))}
       </ul>
     </div>
