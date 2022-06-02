@@ -17,3 +17,10 @@
   background-color: white !important;
   border-radius: 2px !important;
 }
+
+.add-amount {
+  border-color: #008080;
+  color: #008080;
+  background-color: white;
+  border-radius: 2px;
+}

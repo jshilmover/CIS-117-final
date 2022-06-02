@@ -23,7 +23,12 @@ const HomePage = () => {
       </div>
       <div className="text-center mt-3">
         <Link to="/american-airlines/pilots" className="button">
-          Pilots
+          American Airlines Pilots
+        </Link>
+      </div>
+      <div className="text-center mt-3">
+        <Link to="/alaska-airlines/pilots" className="button">
+          Alaska Airlines Pilots
         </Link>
       </div>
     </>

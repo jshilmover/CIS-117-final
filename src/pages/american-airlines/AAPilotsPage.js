@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import "../../css/bidpro.module.css";
 import { useSelector } from "react-redux";
 import { selectCount } from "../../redux/counterSlice";
 
