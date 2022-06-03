@@ -36,13 +36,13 @@ const ASPilotsPage = () => {
       <div className="row">
         <input
           type="number"
-          className="col-sm-1 mx-3 py-3"
+          className="col-sm-1 mx-3 py-2 text-center fs-3 "
           step="any"
           onChange={handleChange}
           value={value || ""}
         />
         <button
-          className="add-amount col-sm-2 py-1 fs-2"
+          className="add-amount col-sm-2 fs-2"
           onClick={() => handleClick(value)}
         >
           Add Amount
