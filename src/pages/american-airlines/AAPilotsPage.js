@@ -1,6 +1,9 @@
 import React from "react";
 import { PilotsListView } from "../../components/PilotsListView/PilotsListView";
 import { Link } from "react-router-dom";
+import "../../css/bidpro.module.css";
+import { useSelector } from "react-redux";
+import { selectCount } from "../../redux/counterSlice";
 
 const AAPilotsPage = () => (
   <div className="container">

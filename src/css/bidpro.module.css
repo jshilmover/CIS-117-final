@@ -1,0 +1,49 @@
+.row {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.value {
+  font-size: 32px !important;
+}
+
+.button {
+  width: 150px !important;
+  font-size: 32px !important;
+  padding: 1pm !important;
+  border: 2px solid rgb(0, 128, 128) !important;
+  color: rgb(0, 128, 128) !important;
+  background-color: white !important;
+  border-radius: 2px !important;
+}
+
+.add-amount {
+  border-color: #008080;
+  color: #008080;
+  background-color: white;
+  border-radius: 2px;
+}
+
+.error {
+  background-color: red;
+  color: white;
+  border-radius: 0.5em;
+}
+
+.number-input {
+  font-size: x-large;
+}
+
+/*css to remove arrows */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
