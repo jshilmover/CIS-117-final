@@ -1,30 +1,55 @@
 import React from "react";
-import { PropTypes } from "prop-types";
 import { NavBarView } from "../NavBarView/NavBarView";
 import { LogoView } from "../LogoView/LogoView";
+import Navbar from "react-bootstrap/Navbar";
+import Container from "react-bootstrap/Container";
+import Nav from "react-bootstrap/Nav";
 
 /**
  * View component that displays the header for the site.
  */
 
-export function HeaderView({ menus }) {
+export function HeaderView() {
   return (
-    <nav className="navbar navbar-expand-lg bidpro-color d-flex py-0">
-      <LogoView />
-      <div className="container-fluid me-2">
-        <NavBarView menus={menus} />
-      </div>
-    </nav>
+    <Navbar bg="light" expand="lg">
+      <Container className="bidpro-color">
+        <Navbar.Brand>
+          <LogoView />
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="navbar-menu" />
+        <Navbar.Collapse id="navbar-menu" className="justify-content-end">
+          <Nav>
+            <NavBarView
+              menus={[
+                {
+                  airlineName: "American Airlines",
+                  bidTypesPath: "/american-airlines/bidtypes",
+                  id: "1",
+                  pilotsPath: "american-airlines/pilots",
+                },
+                {
+                  airlineName: "Alaska Airlines",
+                  bidTypesPath: "/alaska-airlines/bidtypes",
+                  id: "2",
+                  pilotsPath: "alaska-airlines/pilots",
+                },
+                {
+                  airlineName: "Frontier Airlines",
+                  bidTypesPath: "/frontier-airlines/bidtypes",
+                  id: "3",
+                  pilotsPath: "frontier-airlines/pilots",
+                },
+                {
+                  airlineName: "UPS",
+                  bidTypesPath: "/ups/bidtypes",
+                  id: "4",
+                  pilotsPath: "ups/pilots",
+                },
+              ]}
+            />
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
 }
-
-HeaderView.propTypes = {
-  menus: PropTypes.arrayOf(
-    PropTypes.shape({
-      airlineName: PropTypes.string,
-      bidTypesPath: PropTypes.string,
-      id: PropTypes.string,
-      pilotsPath: PropTypes.string,
-    })
-  ),
-};

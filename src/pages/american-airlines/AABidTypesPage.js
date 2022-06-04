@@ -1,6 +1,12 @@
 import React from "react";
 import { BidTypeListView } from "../../components/BidTypeListView/BidTypeListView";
 
+/**
+ * 
+ * Structural component that displays the American airlines bid types page.
+ * 
+ */
+
 const AABidTypesPage = () => (
   <div className="container">
     <h2>Bid Types</h2>
