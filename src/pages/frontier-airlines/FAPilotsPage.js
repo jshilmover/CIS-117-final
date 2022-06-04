@@ -17,7 +17,7 @@ const AAPilotsPage = () => {
 
   useEffect(() => {
     const filteredPilots = selectedPilots.filter(
-      (pilot) => pilot.airline === "AS"
+      (pilot) => pilot.airline === "FA"
     );
     updatePilotsList(filteredPilots);
   }, []);

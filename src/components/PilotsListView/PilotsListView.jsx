@@ -3,9 +3,9 @@ import PropTypes from "prop-types";
 import { PilotView } from "../PilotView/PilotView";
 
 /**
- * 
+ *
  * View component that displays the profiles of all the pilots passed to it as an array.
- * 
+ *
  */
 
 export function PilotsListView(pilots) {
@@ -15,11 +15,18 @@ export function PilotsListView(pilots) {
         {pilots.pilots.map((pilot) => (
           <PilotView
             key={pilot.id}
-            photoPath={pilot.photoPath}
-            name={pilot.name}
-            planeInfo={pilot.planeInfo}
-            location={pilot.location}
-            address={pilot.address}
+            photoPath="../../john-smith.jpeg"
+            name={pilot.firstName + " " + pilot.lastName}
+            planeInfo={pilot.fleet + " " + pilot.seat + " " + pilot.domicile}
+            location={pilot.trainingFacility}
+            address={{
+              name: "Twitter, Inc.",
+              streetAddress: pilot.address1 + " " + pilot.address2,
+              cityStateZip:
+                pilot.city + " " + pilot.state + " " + pilot.postalCode,
+              phone:
+                "(" + pilot.areaCode + ") " + pilot.prefix + "-" + pilot.suffix,
+            }}
           />
         ))}
       </div>
@@ -28,19 +35,5 @@ export function PilotsListView(pilots) {
 }
 
 PilotsListView.propTypes = {
-  pilots: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      photoPath: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-      planeInfo: PropTypes.string.isRequired,
-      location: PropTypes.string.isRequired,
-      address: PropTypes.shape({
-        name: PropTypes.string.isRequired,
-        streetAddress: PropTypes.string.isRequired,
-        cityStateZip: PropTypes.string.isRequired,
-        phone: PropTypes.string.isRequired,
-      }),
-    })
-  ),
+  pilots: PropTypes.arrayOf(PropTypes.shape()),
 };

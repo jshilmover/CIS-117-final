@@ -3,9 +3,9 @@ import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 /**
- * 
+ *
  * View component that displays a single pilots profile.
- * 
+ *
  */
 
 export function PilotView({ photoPath, name, planeInfo, location, address }) {
@@ -22,7 +22,7 @@ export function PilotView({ photoPath, name, planeInfo, location, address }) {
           <div className="row justify-content-center m-auto px-4 col-9">
             <h4 className="col-12 fw-bold mb-0">{name}</h4>
             <div className="col-12 align-items-center">
-            <FontAwesomeIcon icon="fa-solid fa-location-dot" /> {location}
+              <FontAwesomeIcon icon="fa-solid fa-location-dot" /> {location}
             </div>
           </div>
         </div>
@@ -51,7 +51,6 @@ export function PilotView({ photoPath, name, planeInfo, location, address }) {
 }
 
 PilotView.propTypes = {
-  key: PropTypes.string,
   photoPath: PropTypes.string,
   name: PropTypes.string,
   planeInfo: PropTypes.string,

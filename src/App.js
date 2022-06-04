@@ -19,6 +19,8 @@ import HomePage from "./pages/home/HomePage";
 import AABidTypesPage from "./pages/american-airlines/AABidTypesPage";
 import AAPilotsPage from "./pages/american-airlines/AAPilotsPage";
 import ASPilotsPage from "./pages/alaska-airlines/ASPilotsPage";
+import FAPilotsPage from "./pages/frontier-airlines/FAPilotsPage";
+import UPPilotsPage from "./pages/ups/UPPilotsPage";
 
 function App() {
   return (
@@ -28,6 +30,8 @@ function App() {
         <Route path="/american-airlines/bidtypes" component={AABidTypesPage} />
         <Route path="/american-airlines/pilots" component={AAPilotsPage} />
         <Route path="/alaska-airlines/pilots" component={ASPilotsPage} />
+        <Route path="/frontier-airlines/pilots" component={FAPilotsPage} />
+        <Route path="/ups/pilots" component={UPPilotsPage} />
       </Switch>
     </div>
   );
