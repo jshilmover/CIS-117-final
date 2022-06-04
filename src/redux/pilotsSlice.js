@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, current } from "@reduxjs/toolkit";
 
 //uses immer library for immutability
 export const pilotsSlice = createSlice({
@@ -350,20 +350,18 @@ export const pilotsSlice = createSlice({
     ],
   },
   reducers: {
-    /*     increment: (state) => {
-      state.value += 1;
+    addPilot: (state, addition) => {
+      console.log(current(state));
+      console.log(addition.payload);
+      return {
+        ...state,
+        pilots: [...state.pilots, addition.payload],
+      };
     },
-    decrement: (state) => {
-      state.value -= 1;
-    },
-    addInput: (state, value) => {
-      //debugger;
-      state.value += value.payload;
-    }, */
   },
 });
 
 export const selectPilots = (state) => state.pilots.pilots;
-//export const { increment, decrement, addInput } = pilotsSlice.actions;
+export const { addPilot } = pilotsSlice.actions;
 
 export default pilotsSlice.reducer;
