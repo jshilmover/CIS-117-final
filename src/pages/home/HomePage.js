@@ -1,43 +1,23 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import "../../css/bidpro.module.css"; //css module wasnt working and google did not yield useful results.
+import { HeaderView } from "../../components/HeaderView/HeaderView";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap";
+import "../../styles.css";
+import "popper.js";
+import { AdministrationView } from "../../components/AdministrationView/AdministrationView";
+import { VersionView } from "../../components/VersionView/VersionView";
+import { AirlineView } from "../../components/AirlineView/AirlineView";
+import { FooterView } from "../../components/FooterView/FooterView";
 
 /**
- * 
+ *
  * Structural component that displays the home page.
- * 
+ *
  */
 
 const HomePage = () => (
   <div>
-    <HeaderView
-      menus={[
-        {
-          airlineName: "American Airlines",
-          bidTypesPath: "/american-airlines/bidtypes",
-          id: "1",
-          pilotsPath: "american-airlines/pilots",
-        },
-        {
-          airlineName: "Alaska Airlines",
-          bidTypesPath: "/alaska-airlines/bidtypes",
-          id: "2",
-          pilotsPath: "alaska-airlines/pilots",
-        },
-        {
-          airlineName: "Frontier Airlines",
-          bidTypesPath: "/frontier-airlines/bidtypes",
-          id: "3",
-          pilotsPath: "frontier-airlines/pilots",
-        },
-        {
-          airlineName: "UPS",
-          bidTypesPath: "/ups/bidtypes",
-          id: "4",
-          pilotsPath: "ups/pilots",
-        },
-      ]}
-    />
+    <HeaderView />
     <div className="jumbotron d-flex align-items-stretch mx-5 pt-2 pb-0">
       <AdministrationView name="Jory Shilmover" />
       <VersionView current="1.0.0" />

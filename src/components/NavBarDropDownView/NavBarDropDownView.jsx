@@ -7,7 +7,7 @@ import NavDropdown from "react-bootstrap/NavDropdown";
  * Interactive component that displays a navigational drop down menu
  */
 
-export function NavBarDropDownView({ airlineName, bidTypesPath, pilotsPath }) {
+export function NavBarDropDownView({ bidTypesPath, pilotsPath }) {
   return (
     <>
       <NavDropdown.Item>
@@ -26,7 +26,7 @@ export function NavBarDropDownView({ airlineName, bidTypesPath, pilotsPath }) {
 }
 
 NavBarDropDownView.propTypes = {
-  airlineName: PropTypes.string.isRequired,
+  //airlineName: PropTypes.string.isRequired,
   bidTypesPath: PropTypes.string.isRequired,
   pilotsPath: PropTypes.string.isRequired,
 };

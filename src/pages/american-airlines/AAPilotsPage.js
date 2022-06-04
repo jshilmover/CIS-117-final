@@ -1,26 +1,12 @@
 import React from "react";
+import { PilotsListView } from "../../components/PilotsListView/PilotsListView";
 import { Link } from "react-router-dom";
 import "../../css/bidpro.module.css";
-import { useSelector } from "react-redux";
-import { selectCount } from "../../redux/counterSlice";
 
-<<<<<<< HEAD
-const AAPilotsPage = () => {
-  const count = useSelector(selectCount);
-
-  return (
-    <>
-      <h1>American Airlines Pilots</h1>
-      <h2>Count: {count}</h2>
-      <Link to="/">Home</Link>
-    </>
-  );
-};
-=======
 /**
- * 
+ *
  * Structural component that displays the american airlines pilots page.
- * 
+ *
  */
 
 const AAPilotsPage = () => (
@@ -121,6 +107,5 @@ const AAPilotsPage = () => (
     />
   </div>
 );
->>>>>>> feature/week-5-bugs
 
 export default AAPilotsPage;
