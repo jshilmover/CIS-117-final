@@ -5,6 +5,17 @@
   border-radius: 0.3rem;
 }
 
+div.bid-table:nth-child(odd) {background-color: #F8F8F8;}
+
+.header-icons {
+  color: #2977B5;
+}
+
+.bids-seperator {
+  margin-top: 0%;
+  margin-bottom: 0%;
+}
+
 .copyright {
   font-size: x-small;
 }
@@ -26,7 +37,7 @@
 }
 
 .importing {
-  background-color: lightyellow;
+  background-color: lightyellow !important;
 }
 
 .avatar {
@@ -62,15 +73,4 @@
 .link-unstyled:hover {
   color: inherit;
   text-decoration: inherit;
-}
-
-table,
-th,
-td,
-thead {
-  border-bottom-color: #dfdfdf !important;
-}
-
-thead {
-  border-top-color: #f4f4f4 !important;
 }
