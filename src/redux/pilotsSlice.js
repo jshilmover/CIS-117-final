@@ -361,10 +361,17 @@ export const pilotsSlice = createSlice({
       );
       state.pilots[index] = addition.payload;
     },
+    deletePilot: (state, addition) => {
+      debugger;
+      const index = state.pilots.findIndex(
+        (pilot) => pilot.id == addition.payload.id
+      );
+      state.pilots.splice(index, 1);
+    },
   },
 });
 
 export const selectPilots = (state) => state.pilots.pilots;
-export const { addPilot, editPilot } = pilotsSlice.actions;
+export const { addPilot, editPilot, deletePilot } = pilotsSlice.actions;
 
 export default pilotsSlice.reducer;

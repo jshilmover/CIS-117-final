@@ -8,7 +8,7 @@ import { PilotView } from "../PilotView/PilotView";
  *
  */
 
-export function PilotsListView({ pilots, editHandler }) {
+export function PilotsListView({ pilots, editHandler, deleteHandler }) {
   return (
     <div className="pilots-list-bg px-3">
       <div className="row">
@@ -29,6 +29,7 @@ export function PilotsListView({ pilots, editHandler }) {
                 "(" + pilot.areaCode + ") " + pilot.prefix + "-" + pilot.suffix,
             }}
             handleEditOpen={editHandler}
+            handleDelete={deleteHandler}
           />
         ))}
       </div>
@@ -39,4 +40,5 @@ export function PilotsListView({ pilots, editHandler }) {
 PilotsListView.propTypes = {
   pilots: PropTypes.arrayOf(PropTypes.shape()),
   editHandler: PropTypes.func,
+  deleteHandler: PropTypes.func,
 };

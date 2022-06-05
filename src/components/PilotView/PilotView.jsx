@@ -16,6 +16,7 @@ export function PilotView({
   location,
   address,
   handleEditOpen,
+  handleDelete,
 }) {
   return (
     <div className="d-flex col-4 p-4">
@@ -55,7 +56,12 @@ export function PilotView({
         </div>
         <div className="row">
           <div className="col-6">
-            <button className="btn btn-danger w-100">Delete</button>
+            <button
+              className="btn btn-danger w-100"
+              onClick={() => handleDelete(id)}
+            >
+              Delete
+            </button>
           </div>
           <div className="col-6">
             <button
@@ -84,4 +90,5 @@ PilotView.propTypes = {
     phone: PropTypes.string,
   }),
   handleEditOpen: PropTypes.func,
+  handleDelete: PropTypes.func,
 };

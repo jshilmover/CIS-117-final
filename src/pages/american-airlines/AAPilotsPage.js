@@ -3,9 +3,15 @@ import { PilotsListView } from "../../components/PilotsListView/PilotsListView";
 import { Link } from "react-router-dom";
 import "../../css/bidpro.module.css";
 import { useSelector, useDispatch } from "react-redux";
-import { selectPilots, addPilot, editPilot } from "../../redux/pilotsSlice";
+import {
+  selectPilots,
+  addPilot,
+  editPilot,
+  deletePilot,
+} from "../../redux/pilotsSlice";
 import AddPilotModal from "../../components/Modal/AddPilotModal";
 import EditPilotModal from "../../components/Modal/EditPilotModal";
+import DeleteConfirmationModal from "../../components/Modal/DeleteConfirmationModal";
 
 /**
  *
@@ -20,6 +26,8 @@ const AAPilotsPage = () => {
   const [pilotsList, updatePilotsList] = useState([]);
   const [showForm, updateShowForm] = useState(false);
   const [showEditForm, updateShowEditForm] = useState(false);
+  const [showDeleteConf, updateShowDeleteConf] = useState(false);
+  const [deletingPilot, updateDeletingPilot] = useState({});
   const [editingPilot, updateEditingPilot] = useState({});
   const [formInput, handleFormInput] = useState({
     id: 0,
@@ -62,6 +70,20 @@ const AAPilotsPage = () => {
     updateShowEditForm(true);
   };
   const handleEditClose = () => updateShowEditForm(false);
+
+  const handleDeleteOpen = (id) => {
+    const pilotToFilter = selectedPilots.filter((pilot) => pilot.id === id);
+    updateDeletingPilot(pilotToFilter[0]);
+    updateShowDeleteConf(true);
+  };
+
+  const handleDeleteClose = () => updateShowDeleteConf(false);
+
+  const handleDelete = () => {
+    dispatch(deletePilot(deletingPilot));
+    handleDeleteClose();
+    console.log(deletingPilot);
+  };
 
   useEffect(() => {
     const filteredPilots = selectedPilots.filter(
@@ -107,9 +129,19 @@ const AAPilotsPage = () => {
             submitEditForm={submitEditForm}
             editingPilot={editingPilot}
           />
+          <DeleteConfirmationModal
+            showForm={showDeleteConf}
+            handleClose={handleDeleteClose}
+            handleOpen={handleDeleteOpen}
+            handleDelete={handleDelete}
+          />
         </div>
       </div>
-      <PilotsListView pilots={pilotsList} editHandler={handleEditOpen} />
+      <PilotsListView
+        pilots={pilotsList}
+        editHandler={handleEditOpen}
+        deleteHandler={handleDeleteOpen}
+      />
     </div>
   );
 };
