@@ -206,5 +206,5 @@ editPilotModal.propTypes = {
   handleEditClose: PropTypes.func,
   handleFormData: PropTypes.func,
   submitEditForm: PropTypes.func,
-  editingPilot: PropTypes.shape,
+  editingPilot: PropTypes.shape({}),
 };

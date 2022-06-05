@@ -355,10 +355,16 @@ export const pilotsSlice = createSlice({
       addition.payload = { ...addition.payload, id: index + 1 };
       state.pilots.push(addition.payload);
     },
+    editPilot: (state, addition) => {
+      const index = state.pilots.findIndex(
+        (pilot) => pilot.id == addition.payload.id
+      );
+      state.pilots[index] = addition.payload;
+    },
   },
 });
 
 export const selectPilots = (state) => state.pilots.pilots;
-export const { addPilot } = pilotsSlice.actions;
+export const { addPilot, editPilot } = pilotsSlice.actions;
 
 export default pilotsSlice.reducer;

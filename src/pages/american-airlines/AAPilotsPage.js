@@ -3,7 +3,7 @@ import { PilotsListView } from "../../components/PilotsListView/PilotsListView";
 import { Link } from "react-router-dom";
 import "../../css/bidpro.module.css";
 import { useSelector, useDispatch } from "react-redux";
-import { selectPilots, addPilot } from "../../redux/pilotsSlice";
+import { selectPilots, addPilot, editPilot } from "../../redux/pilotsSlice";
 import AddPilotModal from "../../components/Modal/AddPilotModal";
 import EditPilotModal from "../../components/Modal/EditPilotModal";
 
@@ -34,7 +34,6 @@ const AAPilotsPage = () => {
   };
 
   const handleFormData = (event) => {
-    debugger;
     const { id, value } = event.target;
     handleFormInput({ ...formInput, [id]: value });
   };
@@ -46,8 +45,13 @@ const AAPilotsPage = () => {
   };
 
   const submitEditForm = () => {
-    //add reducer nonsense here
+    dispatch(editPilot(editingPilot));
     handleEditClose();
+  };
+
+  const handleEditForm = (event) => {
+    const { id, value } = event.target;
+    updateEditingPilot({ ...editingPilot, [id]: value });
   };
 
   const handleOpen = () => updateShowForm(true);
@@ -92,15 +96,15 @@ const AAPilotsPage = () => {
           </button>
           <AddPilotModal
             showForm={showForm}
-            handleClose={() => handleClose()}
-            handleFormData={(e) => handleFormData(e)}
-            submitForm={() => submitForm()}
+            handleClose={handleClose}
+            handleFormData={handleFormData}
+            submitForm={submitForm}
           />
           <EditPilotModal
             showEditForm={showEditForm}
-            handleEditClose={() => handleEditClose()}
-            handleFormData={(e) => handleFormData(e)}
-            submitEditForm={() => submitEditForm()}
+            handleEditClose={handleEditClose}
+            handleFormData={handleEditForm}
+            submitEditForm={submitEditForm}
             editingPilot={editingPilot}
           />
         </div>
