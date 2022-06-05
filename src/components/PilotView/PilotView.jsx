@@ -8,7 +8,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
  *
  */
 
-export function PilotView({ photoPath, name, planeInfo, location, address }) {
+export function PilotView({
+  id,
+  photoPath,
+  name,
+  planeInfo,
+  location,
+  address,
+  handleEditOpen,
+}) {
   return (
     <div className="d-flex col-4 p-4">
       <div className="pilot-text white-bg mx-auto p-3">
@@ -45,12 +53,26 @@ export function PilotView({ photoPath, name, planeInfo, location, address }) {
             </address>
           </div>
         </div>
+        <div className="row">
+          <div className="col-6">
+            <button className="btn btn-danger w-100">Delete</button>
+          </div>
+          <div className="col-6">
+            <button
+              className="btn btn-primary w-100"
+              onClick={() => handleEditOpen(id)}
+            >
+              Edit
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );
 }
 
 PilotView.propTypes = {
+  id: PropTypes.number,
   photoPath: PropTypes.string,
   name: PropTypes.string,
   planeInfo: PropTypes.string,
@@ -61,4 +83,5 @@ PilotView.propTypes = {
     cityStateZip: PropTypes.string,
     phone: PropTypes.string,
   }),
+  handleEditOpen: PropTypes.func,
 };

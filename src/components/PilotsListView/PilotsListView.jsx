@@ -8,13 +8,14 @@ import { PilotView } from "../PilotView/PilotView";
  *
  */
 
-export function PilotsListView(pilots) {
+export function PilotsListView({ pilots, editHandler }) {
   return (
     <div className="pilots-list-bg px-3">
       <div className="row">
-        {pilots.pilots.map((pilot) => (
+        {pilots.map((pilot) => (
           <PilotView
             key={pilot.id}
+            id={pilot.id}
             photoPath="../../john-smith.jpeg"
             name={pilot.firstName + " " + pilot.lastName}
             planeInfo={pilot.fleet + " " + pilot.seat + " " + pilot.domicile}
@@ -27,6 +28,7 @@ export function PilotsListView(pilots) {
               phone:
                 "(" + pilot.areaCode + ") " + pilot.prefix + "-" + pilot.suffix,
             }}
+            handleEditOpen={editHandler}
           />
         ))}
       </div>
@@ -36,4 +38,5 @@ export function PilotsListView(pilots) {
 
 PilotsListView.propTypes = {
   pilots: PropTypes.arrayOf(PropTypes.shape()),
+  editHandler: PropTypes.func,
 };

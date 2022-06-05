@@ -352,7 +352,6 @@ export const pilotsSlice = createSlice({
   reducers: {
     addPilot: (state, addition) => {
       const index = state.pilots.length;
-      console.log(index);
       addition.payload = { ...addition.payload, id: index + 1 };
       state.pilots.push(addition.payload);
     },
