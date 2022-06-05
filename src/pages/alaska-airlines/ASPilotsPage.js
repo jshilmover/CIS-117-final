@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../../css/bidpro.module.css";
 import { useSelector, useDispatch } from "react-redux";
@@ -9,17 +9,16 @@ const ASPilotsPage = () => {
   const [showError, setError] = useState(false);
 
   const handleChange = (event) => {
-    setValue(event.target.value);
+    setValue(parseInt(event.target.value.trim(), 10));
   };
 
   const handleClick = (value) => {
     value = parseInt(value, 10);
-    debugger;
     if (!isNaN(value)) {
       if (value <= 0 || value >= 999) {
         setError(true);
       } else {
-        dispatch(addInput(value, 10));
+        dispatch(addInput(value));
         setError(false);
       }
     } else {
@@ -30,15 +29,18 @@ const ASPilotsPage = () => {
   const count = useSelector(selectCount);
   const dispatch = useDispatch();
 
+  useEffect(() => {}), [value];
+
   return (
     <>
       <div className="row value">Counter: {count}</div>
       <div className="row">
         <input
-          type="number"
+          type="text"
           className="col-sm-1 mx-3 py-2 text-center fs-3 "
           step="any"
           onChange={handleChange}
+          id="counter"
           value={value || ""}
         />
         <button
