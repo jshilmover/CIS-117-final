@@ -1,4 +1,4 @@
-import { createSlice, current } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 //uses immer library for immutability
 export const pilotsSlice = createSlice({
@@ -351,12 +351,10 @@ export const pilotsSlice = createSlice({
   },
   reducers: {
     addPilot: (state, addition) => {
-      console.log(current(state));
-      console.log(addition.payload);
-      return {
-        ...state,
-        pilots: [...state.pilots, addition.payload],
-      };
+      const index = state.pilots.length;
+      console.log(index);
+      addition.payload = { ...addition.payload, id: index + 1 };
+      state.pilots.push(addition.payload);
     },
   },
 });

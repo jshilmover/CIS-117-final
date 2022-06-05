@@ -19,12 +19,13 @@ const AAPilotsPage = () => {
   const [pilotsList, updatePilotsList] = useState([]);
 
   const defaultFormValues = {
-    id: 25,
+    id: 0,
     airline: "AA",
     company: "American Airlines",
   };
 
   const [formInput, handleFormInput] = useState({
+    id: 0,
     airline: "AA",
     company: "American Airlines",
   });
@@ -46,11 +47,12 @@ const AAPilotsPage = () => {
   const handleClose = () => updateShowForm(false);
 
   useEffect(() => {
+    console.log(selectedPilots);
     const filteredPilots = selectedPilots.filter(
       (pilot) => pilot.airline === "AA"
     );
     updatePilotsList(filteredPilots);
-  }, []);
+  }, [selectedPilots]);
 
   useEffect(() => {}, [formInput]);
 
