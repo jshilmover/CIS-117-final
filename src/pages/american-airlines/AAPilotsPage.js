@@ -20,8 +20,10 @@ import DeleteConfirmationModal from "../../components/Modal/DeleteConfirmationMo
  */
 
 const AAPilotsPage = () => {
+  //Set up redux
   const dispatch = useDispatch();
   const selectedPilots = useSelector(selectPilots);
+
   //state hooks
   const [pilotsList, updatePilotsList] = useState([]);
   const [showForm, updateShowForm] = useState(false);
@@ -35,35 +37,44 @@ const AAPilotsPage = () => {
     company: "American Airlines",
   });
 
+  //default values for the forms to set after submit
   const defaultFormValues = {
     id: 0,
     airline: "AA",
     company: "American Airlines",
   };
 
+  //function to handle the data entered in to the new pilot form
   const handleFormData = (event) => {
+    event.preventDefault();
     const { id, value } = event.target;
     handleFormInput({ ...formInput, [id]: value });
   };
 
+  //function to submit the new pilot form to redux, clear the form, and then close the modal
   const submitForm = () => {
     dispatch(addPilot(formInput));
     handleFormInput(defaultFormValues);
     handleClose();
   };
 
+  //function to handle the data entered in to the edit pilot form
+  const handleEditForm = (event) => {
+    event.preventDefault();
+    const { id, value } = event.target;
+    updateEditingPilot({ ...editingPilot, [id]: value });
+  };
+
+  //function to submit the edit a pilot form and close the modal
   const submitEditForm = () => {
     dispatch(editPilot(editingPilot));
     handleEditClose();
   };
 
-  const handleEditForm = (event) => {
-    const { id, value } = event.target;
-    updateEditingPilot({ ...editingPilot, [id]: value });
-  };
-
+  //functions to deal with opening all 3 types of modals, passing pilot ids and whatnot
   const handleOpen = () => updateShowForm(true);
   const handleClose = () => updateShowForm(false);
+
   const handleEditOpen = (id) => {
     const pilotToFilter = selectedPilots.filter((pilot) => pilot.id === id);
     updateEditingPilot(pilotToFilter[0]);
@@ -76,15 +87,16 @@ const AAPilotsPage = () => {
     updateDeletingPilot(pilotToFilter[0]);
     updateShowDeleteConf(true);
   };
-
   const handleDeleteClose = () => updateShowDeleteConf(false);
 
+  //function to handle the deletion of a pilot
   const handleDelete = () => {
     dispatch(deletePilot(deletingPilot));
     handleDeleteClose();
     console.log(deletingPilot);
   };
 
+  //keep the pilots list up to date with the redux store.
   useEffect(() => {
     const filteredPilots = selectedPilots.filter(
       (pilot) => pilot.airline === "AA"
@@ -92,6 +104,7 @@ const AAPilotsPage = () => {
     updatePilotsList(filteredPilots);
   }, [selectedPilots]);
 
+  //keep the inputted form data loaded
   useEffect(() => {}, [formInput]);
 
   return (

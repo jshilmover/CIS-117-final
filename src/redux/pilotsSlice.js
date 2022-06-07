@@ -362,7 +362,6 @@ export const pilotsSlice = createSlice({
       state.pilots[index] = addition.payload;
     },
     deletePilot: (state, addition) => {
-      debugger;
       const index = state.pilots.findIndex(
         (pilot) => pilot.id == addition.payload.id
       );

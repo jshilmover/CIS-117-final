@@ -42,3 +42,7 @@ PilotsListView.propTypes = {
   editHandler: PropTypes.func,
   deleteHandler: PropTypes.func,
 };
+
+PilotsListView.defaultProps = {
+  pilots: [{}],
+};
