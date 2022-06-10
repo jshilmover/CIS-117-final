@@ -19,81 +19,101 @@ import DeleteConfirmationModal from "../../components/Modal/DeleteConfirmationMo
  *
  */
 
+
 const AAPilotsPage = () => {
   //Set up redux
   const dispatch = useDispatch();
   const selectedPilots = useSelector(selectPilots);
 
+  const initialState = {
+    pilotsList: [],
+    showForm: false,
+    showEditForm: false,
+    showDeleteConf: false,
+    formInput: {
+      id: 0,
+      airline: "AA",
+      company: "American Airlines",
+    },
+    errors: {},
+  };
+
   //state hooks
-  const [pilotsList, updatePilotsList] = useState([]);
-  const [showForm, updateShowForm] = useState(false);
-  const [showEditForm, updateShowEditForm] = useState(false);
-  const [showDeleteConf, updateShowDeleteConf] = useState(false);
+  const [state, setState] = useState(initialState);
+
+  //after converting from many hooks in to one state object I couldn't get these two to work properly within the object.
   const [deletingPilot, updateDeletingPilot] = useState({});
   const [editingPilot, updateEditingPilot] = useState({});
-  const [formInput, handleFormInput] = useState({
-    id: 0,
-    airline: "AA",
-    company: "American Airlines",
-  });
 
   //default values for the forms to set after submit
   const defaultFormValues = {
     id: 0,
     airline: "AA",
     company: "American Airlines",
+    firstName: "",
+    lastName: "",
   };
 
-  //function to handle the data entered in to the new pilot form
+  //functions pertaining to the new pilot form
+  const handleOpen = () => setState({ ...state, showForm: true });
+  const handleClose = () => setState({ ...state, showForm: false });
+
   const handleFormData = (event) => {
-    event.preventDefault();
     const { id, value } = event.target;
-    handleFormInput({ ...formInput, [id]: value });
+    setState({ ...state, formInput: { ...state.formInput, [id]: value } });
   };
 
-  //function to submit the new pilot form to redux, clear the form, and then close the modal
+  const isValid = (value) => {
+    return value != null && value.trim().length > 0;
+  };
+
   const submitForm = () => {
-    dispatch(addPilot(formInput));
-    handleFormInput(defaultFormValues);
-    handleClose();
+    state.formInput.company((name, value) => {
+      if (name != "id" || name != "airline" || name != "company") {
+        if (!isValid(value)) {
+          setState({ ...state, errors: { ...state.errors, [name]: true } });
+        }
+      }
+    });
+    if (!state.errors) {
+      dispatch(addPilot(state.formInput));
+      setState({ ...state, formInput: defaultFormValues, errors: {} });
+      handleClose();
+    } else {
+      console.log(state.errors);
+    }
   };
 
-  //function to handle the data entered in to the edit pilot form
+  //Functions pertaining to editing a pilot
+  const handleEditOpen = (id) => {
+    const pilotToFilter = selectedPilots.filter((pilot) => pilot.id === id);
+    updateEditingPilot(pilotToFilter[0]);
+    setState({ ...state, showEditForm: true });
+  };
+  const handleEditClose = () => setState({ ...state, showEditForm: false });
+
   const handleEditForm = (event) => {
     event.preventDefault();
     const { id, value } = event.target;
     updateEditingPilot({ ...editingPilot, [id]: value });
   };
 
-  //function to submit the edit a pilot form and close the modal
   const submitEditForm = () => {
     dispatch(editPilot(editingPilot));
     handleEditClose();
   };
 
-  //functions to deal with opening all 3 types of modals, passing pilot ids and whatnot
-  const handleOpen = () => updateShowForm(true);
-  const handleClose = () => updateShowForm(false);
-
-  const handleEditOpen = (id) => {
-    const pilotToFilter = selectedPilots.filter((pilot) => pilot.id === id);
-    updateEditingPilot(pilotToFilter[0]);
-    updateShowEditForm(true);
-  };
-  const handleEditClose = () => updateShowEditForm(false);
-
+  //functions pertaining to the deletion of a pilot
   const handleDeleteOpen = (id) => {
     const pilotToFilter = selectedPilots.filter((pilot) => pilot.id === id);
     updateDeletingPilot(pilotToFilter[0]);
-    updateShowDeleteConf(true);
+    setState({ ...state, showDeleteConf: true });
   };
-  const handleDeleteClose = () => updateShowDeleteConf(false);
+  const handleDeleteClose = () => setState({ ...state, showDeleteConf: false });
 
-  //function to handle the deletion of a pilot
   const handleDelete = () => {
     dispatch(deletePilot(deletingPilot));
     handleDeleteClose();
-    console.log(deletingPilot);
   };
 
   //keep the pilots list up to date with the redux store.
@@ -101,11 +121,10 @@ const AAPilotsPage = () => {
     const filteredPilots = selectedPilots.filter(
       (pilot) => pilot.airline === "AA"
     );
-    updatePilotsList(filteredPilots);
+    setState({ ...state, pilotsList: filteredPilots });
   }, [selectedPilots]);
 
-  //keep the inputted form data loaded
-  useEffect(() => {}, [formInput]);
+  useEffect(() => {}, [state]);
 
   return (
     <div className="container">
@@ -130,20 +149,22 @@ const AAPilotsPage = () => {
             Add Pilot
           </button>
           <AddPilotModal
-            showForm={showForm}
+            showForm={state.showForm}
             handleClose={handleClose}
             handleFormData={handleFormData}
             submitForm={submitForm}
+            errors={state.errors}
           />
           <EditPilotModal
-            showEditForm={showEditForm}
+            showEditForm={state.showEditForm}
             handleEditClose={handleEditClose}
             handleFormData={handleEditForm}
             submitEditForm={submitEditForm}
             editingPilot={editingPilot}
+            errors={state.errors}
           />
           <DeleteConfirmationModal
-            showForm={showDeleteConf}
+            showForm={state.showDeleteConf}
             handleClose={handleDeleteClose}
             handleOpen={handleDeleteOpen}
             handleDelete={handleDelete}
@@ -151,7 +172,7 @@ const AAPilotsPage = () => {
         </div>
       </div>
       <PilotsListView
-        pilots={pilotsList}
+        pilots={state.pilotsList}
         editHandler={handleEditOpen}
         deleteHandler={handleDeleteOpen}
       />

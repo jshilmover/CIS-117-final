@@ -9,7 +9,6 @@ export default function editPilotModal({
   submitEditForm,
   editingPilot,
 }) {
-  console.log(editingPilot);
   return (
     <Modal show={showEditForm} onHide={() => handleEditClose()} size="lg">
       <Modal.Header closeButton>Edit a Pilot</Modal.Header>

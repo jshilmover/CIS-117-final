@@ -9,6 +9,7 @@ import { PilotView } from "../PilotView/PilotView";
  */
 
 export function PilotsListView({ pilots, editHandler, deleteHandler }) {
+  console.log(pilots);
   return (
     <div className="pilots-list-bg px-3">
       <div className="row">

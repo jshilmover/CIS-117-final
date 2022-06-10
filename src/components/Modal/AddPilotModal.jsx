@@ -7,7 +7,9 @@ export default function AddPilotModal({
   handleClose,
   handleFormData,
   submitForm,
+  errors,
 }) {
+  console.log(errors);
   return (
     <Modal show={showForm} onHide={() => handleClose()} size="lg">
       <Modal.Header closeButton>Add a Pilot</Modal.Header>
@@ -23,6 +25,9 @@ export default function AddPilotModal({
               id="firstName"
               onChange={(e) => handleFormData(e)}
             />
+            {errors.firstName && (
+              <div className="error-message">Please enter a first name</div>
+            )}
           </div>
           <div className="col-md-6">
             <label htmlFor="lastName" className="form-label">
@@ -34,6 +39,9 @@ export default function AddPilotModal({
               id="lastName"
               onChange={(e) => handleFormData(e)}
             />
+            {errors.lastName && (
+              <div className="error-message">Please enter a last name</div>
+            )}
           </div>
           <div className="col-md-3">
             <label htmlFor="fleet" className="form-label">
@@ -191,4 +199,5 @@ AddPilotModal.propTypes = {
   handleClose: PropTypes.func,
   handleFormData: PropTypes.func,
   submitForm: PropTypes.func,
+  errors: PropTypes.shape({}),
 };
