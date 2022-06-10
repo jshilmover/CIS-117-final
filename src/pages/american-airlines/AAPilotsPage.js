@@ -19,7 +19,6 @@ import DeleteConfirmationModal from "../../components/Modal/DeleteConfirmationMo
  *
  */
 
-
 const AAPilotsPage = () => {
   //Set up redux
   const dispatch = useDispatch();
@@ -35,7 +34,6 @@ const AAPilotsPage = () => {
       airline: "AA",
       company: "American Airlines",
     },
-    errors: {},
   };
 
   //state hooks
@@ -44,14 +42,13 @@ const AAPilotsPage = () => {
   //after converting from many hooks in to one state object I couldn't get these two to work properly within the object.
   const [deletingPilot, updateDeletingPilot] = useState({});
   const [editingPilot, updateEditingPilot] = useState({});
+  const [errors, setErrors] = useState({});
 
   //default values for the forms to set after submit
   const defaultFormValues = {
     id: 0,
     airline: "AA",
     company: "American Airlines",
-    firstName: "",
-    lastName: "",
   };
 
   //functions pertaining to the new pilot form
@@ -63,24 +60,26 @@ const AAPilotsPage = () => {
     setState({ ...state, formInput: { ...state.formInput, [id]: value } });
   };
 
-  const isValid = (value) => {
-    return value != null && value.trim().length > 0;
+  const isValid = (event) => {
+    const { id, value } = event.target;
+    if (id == "firstName" && value == null) {
+      setErrors({
+        ...errors,
+        firstName: "Please enter a First Name.",
+      });
+    } else if (event.target.firstName) {
+      setErrors(delete errors.firstName);
+    }
   };
 
   const submitForm = () => {
-    state.formInput.company((name, value) => {
-      if (name != "id" || name != "airline" || name != "company") {
-        if (!isValid(value)) {
-          setState({ ...state, errors: { ...state.errors, [name]: true } });
-        }
-      }
-    });
-    if (!state.errors) {
+    debugger;
+    isValid(state.formInput);
+    if (Object.keys(errors).length === 0) {
       dispatch(addPilot(state.formInput));
-      setState({ ...state, formInput: defaultFormValues, errors: {} });
+      setState({ ...state, formInput: defaultFormValues });
+      setErrors({});
       handleClose();
-    } else {
-      console.log(state.errors);
     }
   };
 
@@ -124,7 +123,9 @@ const AAPilotsPage = () => {
     setState({ ...state, pilotsList: filteredPilots });
   }, [selectedPilots]);
 
-  useEffect(() => {}, [state]);
+  /* useEffect(() => {
+    isValid(state.formInput);
+  }, [state.formInput]); */
 
   return (
     <div className="container">
@@ -153,7 +154,8 @@ const AAPilotsPage = () => {
             handleClose={handleClose}
             handleFormData={handleFormData}
             submitForm={submitForm}
-            errors={state.errors}
+            errors={errors}
+            validate={isValid}
           />
           <EditPilotModal
             showEditForm={state.showEditForm}
@@ -179,6 +181,5 @@ const AAPilotsPage = () => {
     </div>
   );
 };
-
 
 export default AAPilotsPage;

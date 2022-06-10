@@ -8,6 +8,7 @@ export default function AddPilotModal({
   handleFormData,
   submitForm,
   errors,
+  validate,
 }) {
   console.log(errors);
   return (
@@ -24,9 +25,10 @@ export default function AddPilotModal({
               className="form-control"
               id="firstName"
               onChange={(e) => handleFormData(e)}
+              onBlur={(e) => validate(e)}
             />
             {errors.firstName && (
-              <div className="error-message">Please enter a first name</div>
+              <div className="error-message">{errors.firstName}</div>
             )}
           </div>
           <div className="col-md-6">
@@ -53,6 +55,9 @@ export default function AddPilotModal({
               id="fleet"
               onChange={(e) => handleFormData(e)}
             />
+            {errors.fleet && (
+              <div className="error-message">Please enter a fleet</div>
+            )}
           </div>
           <div className="col-md-3">
             <label htmlFor="seat" className="form-label">
@@ -64,6 +69,9 @@ export default function AddPilotModal({
               id="seat"
               onChange={(e) => handleFormData(e)}
             />
+            {errors.seat && (
+              <div className="error-message">Please enter a seat</div>
+            )}
           </div>
           <div className="col-md-3">
             <label htmlFor="domicile" className="form-label">
@@ -75,6 +83,9 @@ export default function AddPilotModal({
               id="domicile"
               onChange={(e) => handleFormData(e)}
             />
+            {errors.domicile && (
+              <div className="error-message">Please enter a Domicile</div>
+            )}
           </div>
           <div className="col-md-3">
             <label htmlFor="trainingFacility" className="form-label">
@@ -86,6 +97,11 @@ export default function AddPilotModal({
               id="trainingFacility"
               onChange={(e) => handleFormData(e)}
             />
+            {errors.trainingFacility && (
+              <div className="error-message">
+                Please enter a Training Facility
+              </div>
+            )}
           </div>
           <div className="col-12">
             <label htmlFor="address1" className="form-label">
@@ -97,6 +113,9 @@ export default function AddPilotModal({
               id="address1"
               onChange={(e) => handleFormData(e)}
             />
+            {errors.address1 && (
+              <div className="error-message">Please enter an address 1</div>
+            )}
           </div>
           <div className="col-12">
             <label htmlFor="address2" className="form-label">
@@ -108,6 +127,9 @@ export default function AddPilotModal({
               id="address2"
               onChange={(e) => handleFormData(e)}
             />
+            {errors.address2 && (
+              <div className="error-message">Please enter an address 2</div>
+            )}
           </div>
           <div className="col-md-6">
             <label htmlFor="city" className="form-label">
@@ -119,6 +141,9 @@ export default function AddPilotModal({
               id="city"
               onChange={(e) => handleFormData(e)}
             />
+            {errors.city && (
+              <div className="error-message">Please enter a City</div>
+            )}
           </div>
           <div className="col-md-2">
             <label htmlFor="state" className="form-label">
@@ -130,6 +155,9 @@ export default function AddPilotModal({
               id="state"
               onChange={(e) => handleFormData(e)}
             />
+            {errors.state && (
+              <div className="error-message">Please enter a State</div>
+            )}
           </div>
           <div className="col-md-4">
             <label htmlFor="postalCode" className="form-label">
@@ -141,6 +169,9 @@ export default function AddPilotModal({
               id="postalCode"
               onChange={(e) => handleFormData(e)}
             />
+            {errors.postalCode && (
+              <div className="error-message">Please enter a Postal Code</div>
+            )}
           </div>
           <div className="col-12">
             <label htmlFor="phone" className="form-label">
@@ -175,6 +206,11 @@ export default function AddPilotModal({
                 onChange={(e) => handleFormData(e)}
               />
             </div>
+            {errors.areaCode ||
+              errors.prefix ||
+              (errors.suffix && (
+                <div className="error-message">Please enter a Domicile</div>
+              ))}
           </div>
         </form>
       </Modal.Body>
@@ -200,4 +236,5 @@ AddPilotModal.propTypes = {
   handleFormData: PropTypes.func,
   submitForm: PropTypes.func,
   errors: PropTypes.shape({}),
+  validate: PropTypes.func,
 };
