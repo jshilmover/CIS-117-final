@@ -10,13 +10,17 @@ export default function AddPilotModal({
   errors,
   validate,
 }) {
-  console.log(errors);
   return (
-    <Modal show={showForm} onHide={() => handleClose()} size="lg">
+    <Modal
+      show={showForm}
+      fullscreen="sm-down"
+      onHide={() => handleClose()}
+      size="lg"
+    >
       <Modal.Header closeButton>Add a Pilot</Modal.Header>
       <Modal.Body>
         <form className="row">
-          <div className="col-md-6">
+          <div className="col-12 col-md-6">
             <label htmlFor="firstName" className="form-label">
               First Name
             </label>
@@ -24,14 +28,14 @@ export default function AddPilotModal({
               type="text"
               className="form-control"
               id="firstName"
-              onChange={(e) => handleFormData(e)}
               onBlur={(e) => validate(e)}
+              onChange={(e) => handleFormData(e)}
             />
             {errors.firstName && (
-              <div className="error-message">{errors.firstName}</div>
+              <div className="error-message">Please enter a First Name</div>
             )}
           </div>
-          <div className="col-md-6">
+          <div className="col-12 col-md-6">
             <label htmlFor="lastName" className="form-label">
               Last Name
             </label>
@@ -39,13 +43,14 @@ export default function AddPilotModal({
               type="text"
               className="form-control"
               id="lastName"
+              onBlur={(e) => validate(e)}
               onChange={(e) => handleFormData(e)}
             />
             {errors.lastName && (
-              <div className="error-message">Please enter a last name</div>
+              <div className="error-message">Please enter a Last Name</div>
             )}
           </div>
-          <div className="col-md-3">
+          <div className="col-12 col-md-3">
             <label htmlFor="fleet" className="form-label">
               Fleet
             </label>
@@ -53,13 +58,14 @@ export default function AddPilotModal({
               type="text"
               className="form-control"
               id="fleet"
+              onBlur={(e) => validate(e)}
               onChange={(e) => handleFormData(e)}
             />
             {errors.fleet && (
               <div className="error-message">Please enter a fleet</div>
             )}
           </div>
-          <div className="col-md-3">
+          <div className="col-12 col-md-3">
             <label htmlFor="seat" className="form-label">
               Seat
             </label>
@@ -67,13 +73,14 @@ export default function AddPilotModal({
               type="text"
               className="form-control"
               id="seat"
+              onBlur={(e) => validate(e)}
               onChange={(e) => handleFormData(e)}
             />
             {errors.seat && (
               <div className="error-message">Please enter a seat</div>
             )}
           </div>
-          <div className="col-md-3">
+          <div className="col-12 col-md-3">
             <label htmlFor="domicile" className="form-label">
               Domicile
             </label>
@@ -81,13 +88,14 @@ export default function AddPilotModal({
               type="text"
               className="form-control"
               id="domicile"
+              onBlur={(e) => validate(e)}
               onChange={(e) => handleFormData(e)}
             />
             {errors.domicile && (
               <div className="error-message">Please enter a Domicile</div>
             )}
           </div>
-          <div className="col-md-3">
+          <div className="col-12 col-md-3">
             <label htmlFor="trainingFacility" className="form-label">
               Training Facility
             </label>
@@ -95,6 +103,7 @@ export default function AddPilotModal({
               type="text"
               className="form-control"
               id="trainingFacility"
+              onBlur={(e) => validate(e)}
               onChange={(e) => handleFormData(e)}
             />
             {errors.trainingFacility && (
@@ -111,6 +120,7 @@ export default function AddPilotModal({
               type="text"
               className="form-control"
               id="address1"
+              onBlur={(e) => validate(e)}
               onChange={(e) => handleFormData(e)}
             />
             {errors.address1 && (
@@ -125,13 +135,14 @@ export default function AddPilotModal({
               type="text"
               className="form-control"
               id="address2"
+              onBlur={(e) => validate(e)}
               onChange={(e) => handleFormData(e)}
             />
             {errors.address2 && (
               <div className="error-message">Please enter an address 2</div>
             )}
           </div>
-          <div className="col-md-6">
+          <div className="col-12 col-md-6">
             <label htmlFor="city" className="form-label">
               City
             </label>
@@ -139,13 +150,14 @@ export default function AddPilotModal({
               type="text"
               className="form-control"
               id="city"
+              onBlur={(e) => validate(e)}
               onChange={(e) => handleFormData(e)}
             />
             {errors.city && (
               <div className="error-message">Please enter a City</div>
             )}
           </div>
-          <div className="col-md-2">
+          <div className="col-12 col-md-2">
             <label htmlFor="state" className="form-label">
               State
             </label>
@@ -153,13 +165,14 @@ export default function AddPilotModal({
               type="text"
               className="form-control"
               id="state"
+              onBlur={(e) => validate(e)}
               onChange={(e) => handleFormData(e)}
             />
             {errors.state && (
               <div className="error-message">Please enter a State</div>
             )}
           </div>
-          <div className="col-md-4">
+          <div className="col-12 col-md-4">
             <label htmlFor="postalCode" className="form-label">
               Postal Code
             </label>
@@ -167,6 +180,7 @@ export default function AddPilotModal({
               type="text"
               className="form-control"
               id="postalCode"
+              onBlur={(e) => validate(e)}
               onChange={(e) => handleFormData(e)}
             />
             {errors.postalCode && (
@@ -177,14 +191,15 @@ export default function AddPilotModal({
             <label htmlFor="phone" className="form-label">
               Phone number
             </label>
-            <div className="input-group row text-center">
+            <div className="input-group text-center">
               <span className="input-group-text col-md-1 justify-content-center">
                 (
               </span>
               <input
                 type="text"
-                className="form-control col-md-2"
+                className="form-control col-2"
                 id="areaCode"
+                onBlur={(e) => validate(e)}
                 onChange={(e) => handleFormData(e)}
               />
               <span className="input-group-text col-md-1 justify-content-center">
@@ -194,6 +209,7 @@ export default function AddPilotModal({
                 type="text"
                 className="form-control col-md-2"
                 id="prefix"
+                onBlur={(e) => validate(e)}
                 onChange={(e) => handleFormData(e)}
               />
               <span className="input-group-text col-md-1 justify-content-center">
@@ -203,13 +219,14 @@ export default function AddPilotModal({
                 type="text"
                 className="form-control col-md-2"
                 id="suffix"
+                onBlur={(e) => validate(e)}
                 onChange={(e) => handleFormData(e)}
               />
             </div>
             {errors.areaCode ||
               errors.prefix ||
               (errors.suffix && (
-                <div className="error-message">Please enter a Domicile</div>
+                <div className="error-message">Phone is Required</div>
               ))}
           </div>
         </form>

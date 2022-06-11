@@ -33,6 +33,20 @@ const AAPilotsPage = () => {
       id: 0,
       airline: "AA",
       company: "American Airlines",
+      firstName: "",
+      lastName: "",
+      fleet: "",
+      seat: "",
+      domicile: "",
+      trainingFacility: "",
+      address1: "",
+      address2: "",
+      city: "",
+      state: "",
+      postalCode: "",
+      areaCode: "",
+      prefix: "",
+      suffix: "",
     },
   };
 
@@ -49,6 +63,20 @@ const AAPilotsPage = () => {
     id: 0,
     airline: "AA",
     company: "American Airlines",
+    firstName: "",
+    lastName: "",
+    fleet: "",
+    seat: "",
+    domicile: "",
+    trainingFacility: "",
+    address1: "",
+    address2: "",
+    city: "",
+    state: "",
+    postalCode: "",
+    areaCode: "",
+    prefix: "",
+    suffix: "",
   };
 
   //functions pertaining to the new pilot form
@@ -57,28 +85,44 @@ const AAPilotsPage = () => {
 
   const handleFormData = (event) => {
     const { id, value } = event.target;
-    setState({ ...state, formInput: { ...state.formInput, [id]: value } });
+    setState({
+      ...state,
+      formInput: { ...state.formInput, [id]: value },
+    });
   };
 
-  const isValid = (event) => {
+  const validateonBlur = (event) => {
+    debugger;
     const { id, value } = event.target;
-    if (id == "firstName" && value == null) {
+    if (value == "" || !value.trim().length > 0 || value == undefined) {
       setErrors({
         ...errors,
-        firstName: "Please enter a First Name.",
+        [id]: "Field is Required",
       });
-    } else if (event.target.firstName) {
-      setErrors(delete errors.firstName);
+    } else {
+      setErrors(delete errors[id]);
     }
   };
 
+  /*   const validateOnSubmit = () => {
+    Object.entries(state.formInput).map(([key, value]) => {
+      console.log(key);
+      console.log(value);
+      if (key != "id") {
+        if (value == "" || !value.trim().length > 0 || value == undefined) {
+          setErrors({ [key]: "Field is Required" });
+        } else {
+          setErrors(delete errors[key]);
+        }
+      }
+    });
+  }; */
+
   const submitForm = () => {
-    debugger;
-    isValid(state.formInput);
-    if (Object.keys(errors).length === 0) {
+    //validateOnSubmit();
+    if (Object.keys(errors).length == 0) {
       dispatch(addPilot(state.formInput));
       setState({ ...state, formInput: defaultFormValues });
-      setErrors({});
       handleClose();
     }
   };
@@ -123,10 +167,6 @@ const AAPilotsPage = () => {
     setState({ ...state, pilotsList: filteredPilots });
   }, [selectedPilots]);
 
-  /* useEffect(() => {
-    isValid(state.formInput);
-  }, [state.formInput]); */
-
   return (
     <div className="container">
       <div className="row d-flex">
@@ -142,7 +182,7 @@ const AAPilotsPage = () => {
             <strong className="active-contacts">Contacts</strong>
           </span>
         </div>
-        <div className="col-2">
+        <div className="col-md-2">
           <button
             className="btn btn-primary w-100 add-button"
             onClick={() => handleOpen()}
@@ -155,7 +195,7 @@ const AAPilotsPage = () => {
             handleFormData={handleFormData}
             submitForm={submitForm}
             errors={errors}
-            validate={isValid}
+            validate={validateonBlur}
           />
           <EditPilotModal
             showEditForm={state.showEditForm}
@@ -163,7 +203,8 @@ const AAPilotsPage = () => {
             handleFormData={handleEditForm}
             submitEditForm={submitEditForm}
             editingPilot={editingPilot}
-            errors={state.errors}
+            errors={errors}
+            validate={validateonBlur}
           />
           <DeleteConfirmationModal
             showForm={state.showDeleteConf}
@@ -181,5 +222,6 @@ const AAPilotsPage = () => {
     </div>
   );
 };
+
 
 export default AAPilotsPage;

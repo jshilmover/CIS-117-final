@@ -10,11 +10,16 @@ export default function editPilotModal({
   editingPilot,
 }) {
   return (
-    <Modal show={showEditForm} onHide={() => handleEditClose()} size="lg">
+    <Modal
+      show={showEditForm}
+      onHide={() => handleEditClose()}
+      fullscreen="sm-down"
+      size="lg"
+    >
       <Modal.Header closeButton>Edit a Pilot</Modal.Header>
       <Modal.Body>
         <form className="row">
-          <div className="col-md-6">
+          <div className="col-12 col-md-6">
             <label htmlFor="firstName" className="form-label">
               First Name
             </label>
@@ -26,7 +31,7 @@ export default function editPilotModal({
               onChange={(e) => handleFormData(e)}
             />
           </div>
-          <div className="col-md-6">
+          <div className="col-12 col-md-6">
             <label htmlFor="lastName" className="form-label">
               Last Name
             </label>
@@ -38,7 +43,7 @@ export default function editPilotModal({
               onChange={(e) => handleFormData(e)}
             />
           </div>
-          <div className="col-md-3">
+          <div className="col-12 col-md-3">
             <label htmlFor="fleet" className="form-label">
               Fleet
             </label>
@@ -50,7 +55,7 @@ export default function editPilotModal({
               onChange={(e) => handleFormData(e)}
             />
           </div>
-          <div className="col-md-3">
+          <div className="col-12 col-md-3">
             <label htmlFor="seat" className="form-label">
               Seat
             </label>
@@ -62,7 +67,7 @@ export default function editPilotModal({
               onChange={(e) => handleFormData(e)}
             />
           </div>
-          <div className="col-md-3">
+          <div className="col-12 col-md-3">
             <label htmlFor="domicile" className="form-label">
               Domicile
             </label>
@@ -74,7 +79,7 @@ export default function editPilotModal({
               onChange={(e) => handleFormData(e)}
             />
           </div>
-          <div className="col-md-3">
+          <div className="col-12 col-md-3">
             <label htmlFor="trainingFacility" className="form-label">
               Training Facility
             </label>
@@ -110,7 +115,7 @@ export default function editPilotModal({
               onChange={(e) => handleFormData(e)}
             />
           </div>
-          <div className="col-md-6">
+          <div className="col-12 col-md-6">
             <label htmlFor="city" className="form-label">
               City
             </label>
@@ -122,7 +127,7 @@ export default function editPilotModal({
               onChange={(e) => handleFormData(e)}
             />
           </div>
-          <div className="col-md-2">
+          <div className="col-12 col-md-2">
             <label htmlFor="state" className="form-label">
               State
             </label>
@@ -134,7 +139,7 @@ export default function editPilotModal({
               onChange={(e) => handleFormData(e)}
             />
           </div>
-          <div className="col-md-4">
+          <div className="col-12 col-md-4">
             <label htmlFor="postalCode" className="form-label">
               Postal Code
             </label>
@@ -150,7 +155,7 @@ export default function editPilotModal({
             <label htmlFor="phone" className="form-label">
               Phone number
             </label>
-            <div className="input-group row text-center">
+            <div className="input-group text-center">
               <span className="input-group-text col-md-1 justify-content-center">
                 (
               </span>
