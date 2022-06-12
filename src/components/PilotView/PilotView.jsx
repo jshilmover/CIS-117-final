@@ -19,7 +19,7 @@ export function PilotView({
   handleDelete,
 }) {
   return (
-    <div className="d-flex col-12 col-md-4 p-4">
+    <div className="d-flex col-12 col-lg-4 p-4">
       <div className="pilot-text white-bg mx-auto p-3">
         <div className="row justify-content-center ">
           <div className="col-3 my-3">
