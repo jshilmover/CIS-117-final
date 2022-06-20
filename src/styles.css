@@ -1,0 +1,80 @@
+.jumbotron {
+  padding: 4rem 2rem;
+  margin-bottom: 2rem;
+  background-color: var(--bs-light);
+  border-radius: 0.3rem;
+}
+
+.copyright {
+  font-size: x-small;
+}
+
+.bidpro-color,
+.bidpro-color:hover {
+  background-color: #83a4c4;
+  color: white;
+}
+
+.retry-import-button {
+  background-color: #77a6d0;
+  color: white;
+}
+
+.secondary-bidtype-button {
+  background-color: #93b3d0;
+  color: white;
+}
+
+.importing {
+  background-color: lightyellow;
+}
+
+.avatar {
+  position: relative;
+  vertical-align: middle;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.pilot-text {
+  color: #646668;
+}
+
+.pilots-list-bg {
+  background-color: #f3f3f4;
+}
+
+.white-bg {
+  background-color: white;
+}
+
+.title-text {
+  color: #a0a1a2;
+}
+
+.active-contacts {
+  color: #6a6c6e;
+}
+
+.link-unstyled,
+.link-unstyled:link,
+.link-unstyled:hover {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+.add-button {
+  margin-top: auto;
+}
+
+table,
+th,
+td,
+thead {
+  border-bottom-color: #dfdfdf !important;
+}
+
+thead {
+  border-top-color: #f4f4f4 !important;
+}
